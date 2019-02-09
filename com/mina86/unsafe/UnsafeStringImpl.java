@@ -68,14 +68,14 @@ abstract class UnsafeStringImpl {
 		}
 
 		String fromChars(final char[] chars) {
-			final String string = new String();
 			try {
+				final String string = new String();
 				field.set(string, chars);
+				return string;
 			} catch (Exception ex) {
 				/* We should never be here */
 				return new String(chars);
 			}
-			return string;
 		}
 
 		char[] toChars(final String string) {
